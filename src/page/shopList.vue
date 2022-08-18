@@ -162,6 +162,7 @@
                         throw new Error('获取数据失败');
                     }
                     this.getResturants();
+
                 }catch(err){
                     console.log('获取数据失败', err);
                 }
@@ -195,6 +196,7 @@
             async getResturants(){
                 const {latitude, longitude} = this.city;
                 const restaurants = await getResturants({latitude, longitude, offset: this.offset, limit: this.limit});
+                console.log(restaurants);
                 this.tableData = [];
                 restaurants.forEach(item => {
                     const tableData = {};
